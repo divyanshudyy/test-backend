@@ -1,18 +1,16 @@
-import express from "express";
-import dotenv from "dotenv";
-import cors from "cors";
-import router from "./routes/index";
+// src/server.ts
+import { env } from "./config/env";
+import { loadDatabase } from "./loaders/db.loader";
+import { createApp } from "./app";
+import { logger } from "./config/logger";
 
-const app = express();
-app.use(express.json());
-app.use(cors());
-dotenv.config();
+async function startServer() {
+  await loadDatabase();
+  const app = createApp();
 
-// base API route
-app.use("/api/v1", router);
+  app.listen(env.port, () => {
+    logger.info(`Server running on port ${env.port}`);
+  });
+}
 
-// server start
-const port = process.env.PORT;
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+startServer();
