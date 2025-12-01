@@ -1,10 +1,8 @@
 // src/modules/profile/profile.service.ts
+import { ProfileModel } from "./profile.model";
 
-export function getProfileService() {
-  return {
-    name: "John Doe",
-    age: 28,
-    role: "Admin",
-    joined: new Date().toISOString(),
-  };
-}
+export const ProfileService = {
+  async listProfiles() {
+    return ProfileModel.find().lean();
+  }
+};

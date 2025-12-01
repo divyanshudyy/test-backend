@@ -1,11 +1,11 @@
 // src/modules/profile/profile.routes.ts
 
 import { Router } from "express";
-import { getProfileController } from "./profile.controller";
+import { ProfileController } from "./profile.controller";
 
 const router = Router();
 
 // GET /api/v1/profile
-router.get("/", getProfileController);
+router.get("/", ProfileController.list);
 
 export default router;
