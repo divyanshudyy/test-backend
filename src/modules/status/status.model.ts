@@ -1,11 +1,11 @@
 import { mongoose } from "../../config/database";
 
-const ProfileSchema = new mongoose.Schema(
+const StatusSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
-    age: { type: Number, required: true },
+    service: { type: String, required: true },
+    status: { type: String, required: true },
   },
   { timestamps: true }
 );
 
-export const ProfileModel = mongoose.model("Profile", ProfileSchema);
+export const StatusModel = mongoose.model("Status", StatusSchema);

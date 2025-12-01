@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { statusController } from "./status.controller";
+import { StatusController } from "./status.controller";
 
 const router = Router();
 
 // GET /api/status
-router.get("/", statusController);
+router.get("/", StatusController.list);
 
 export default router;

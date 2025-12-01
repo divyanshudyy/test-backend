@@ -1,9 +1,11 @@
 import { Request, Response } from "express";
-import { getServiceStatus } from "./status.service";
+import { StatusService } from "./status.service";
 import { logger } from "../../config/logger";
 
-export function statusController(req: Request, res: Response) {
-  const data = getServiceStatus();
-  logger.info("Fetching service status");
-  res.json(data);
-}
+export const StatusController = {
+  async list(_req: Request, res: Response) {
+    const status = await StatusService.listStatus();
+    logger.info("Fetching status list");
+    res.json(status);
+  },
+};

@@ -1,7 +1,7 @@
-export function getServiceStatus() {
-  return {
-    service: "Demo Service",
-    status: "OK",
-    timestamp: new Date().toISOString()
-  };
-}
+import {StatusModel } from "./status.model";
+
+export const StatusService = {
+  async listStatus() {
+    return StatusModel.find().lean();
+  },
+};
