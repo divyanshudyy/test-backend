@@ -1,7 +1,7 @@
 import cors from "cors";
 
 const allowedOrigins = [
-  "https://your-frontend.com",  // exact production domain
+  "https://test-frontend-beta-ten.vercel.app",  // exact production domain
   "http://localhost:3000",      // local dev
 ];
 
