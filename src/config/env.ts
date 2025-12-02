@@ -8,9 +8,9 @@ function required(name: string): string {
 }
 
 export const env = {
-  port: Number(process.env.PORT || 5000),
-  mongoUri: process.env.MONGO_URI || "",
-  dbName: process.env.DB_NAME || "testing_db",
+  port: Number(process.env.PORT || 5000),      
+  mongoUri: required("MONGO_URI"),               
+  dbName: required("DB_NAME"),                   
   nodeEnv: process.env.NODE_ENV || "development",
   isDev: process.env.NODE_ENV !== "production",
 };
